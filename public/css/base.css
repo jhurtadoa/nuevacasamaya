@@ -1,0 +1,361 @@
+body
+{	
+	background-image: linear-gradient(top, hsla(206,34%,86%,1) 20%, white 100%);
+	background-image: -moz-linear-gradient(top, hsla(206,34%,86%,1) 20%, white 100%);
+	background-image: -webkit-linear-gradient(top, hsla(206,34%,86%,1) 20%, white 100%);
+
+	
+}
+a:hover
+{
+	text-decoration: none;
+}
+
+#principal h1,#principal h2,#principal h3,#principal h4,#principal legend
+{
+	margin: 0;
+	margin-left: 2.5%;
+	padding: 0.6em 0em;
+}
+
+h1,h2
+{
+	font-style:italic;
+	font-family: "times new roman";
+	text-shadow:0px 5px 10px gray;
+	-moz-text-shadow:0px 5px 10px gray;
+	-webkit-text-shadow:0px 5px 10px gray;
+}
+h1
+{
+	font-size: 1.5em;
+	margin-bottom: 0.2em;
+}
+
+h2
+{
+	font-size: 1.2em;
+	margin-top: 0;
+}
+
+	
+
+
+header, .navbar-default, footer, #principal
+{
+	box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+	-moz-box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+	-ms-box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+	-webkit-box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+	-o-box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+}
+header
+{	
+	margin-top: 3px;
+	color: rgba(255,255,255,1);
+	background-color: #4483c2;	
+	border-radius: 50px 50px 0px 0px;
+	border:1px solid #4483c2;
+	overflow: hidden;
+}
+
+.navbar-default
+{
+	border-radius: 0px;
+	margin-bottom: 0px;
+}
+
+.item img
+{
+	width: 100%;
+}
+
+#carta
+{
+	display: flex;
+	flex-direction:row;
+	
+}
+
+#carta article
+{	
+	height: 100px;
+	background-color:rgba(255,255,255,1);
+	flex:1;
+	border:1px dotted gray;	
+	text-align:left;
+	overflow: hidden;
+	
+}
+
+#carta article img
+{
+	display: inline;
+	height:80px;
+	float: left;
+}
+
+
+
+footer
+{
+	background-color: #4483c2;
+	text-align: center;
+	margin-bottom: 3px;
+	overflow: hidden;
+}
+
+footer img
+{
+	width: 100px;
+}
+
+#imgudc
+{
+	width: 70px;
+
+}
+
+#imgLogo
+{
+	width: 100px;
+}
+
+#principal
+{
+	
+	padding: 20px 30px 30px 30px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	background-color: rgba(250,250,250,0.8);
+}
+/*=============================== CONTACTANOS======*/
+
+#imagencontactanos, #formcontactanos
+{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+	min-height: 500px;
+
+}
+
+#imagencontactanos
+{
+	width: 40%;
+	margin-left: 4%;
+	background-image: url("../img/contactanos.png");
+	background-size: 100% 100%;
+}
+
+#formcontactanos
+{
+	width: 50%;
+	margin-right: 4%;
+}
+
+.boton
+{
+	display: block;
+	margin:0 auto;
+}
+
+footer
+{
+	border-radius: 0 0 50px 50px;
+}
+footer p
+{
+	color: rgba(255,255,255,1);
+	text-shadow:0px 2px 9px gray;
+		-moz-text-shadow:0px 2px 9px gray;
+		-webkit-text-shadow:0px 2px 9px gray;
+	margin: 0;
+}
+.table-responsive
+{
+	overflow-x: auto;
+	margin: 0.3em auto;
+	width: 95%;
+	padding: 0;
+	border-radius: 1em;
+}
+#tituloproyecto
+{
+		float: left;
+
+}
+
+#buscarproyecto 
+{
+	width: 65%;
+	padding-top: .5em;
+	margin-left: auto;
+	margin-right: 2.5%; 
+}
+#reporteModal .btn-group.btn-group-justified
+{
+	width: 50%;
+	margin: 0 auto;	
+}
+
+#reporteModal .modal-footer
+{
+	padding: 0;
+}
+#reporteModal .modal-footer ul.pager > li a
+{
+	width: 23.5%;
+}
+#reporteModal .modal-footer ul.pager
+{
+	margin: 10px 0 15px 0;
+}
+p.exportar
+{
+	margin-bottom: 0;
+}
+
+ #reporteModal .modal-footer p.exportar
+{
+	text-align: center;
+}
+
+#tbReporteLista
+{
+	height: 200px;
+	display: block;
+	border-radius: 1em 0 0 1em;
+}
+
+#espacioReporte .table
+{
+	overflow: auto;
+	height: 300px;
+}
+
+#tbReporteLista td
+{
+	width: auto;
+}
+
+/* EDITAR PROYECTO */
+#formeditaproyecto
+{
+	margin: 0 auto;
+}
+fieldset.columnas
+{
+	display: inline-block;
+	width: 48%;
+	min-width: 200px;
+	margin: 0 auto;
+
+}
+
+#formdescripcion
+{
+	width: 96.3%;
+}
+fieldset.columnas input
+{
+	display: block;
+	width: 100%;
+}
+
+#nombreRubloNuevoR,#presupuestoRubloNuevoR,.rublosproyecto, .presupuestorublo
+{
+	min-width: 100px;
+	max-width: 39.6%;
+	display: inline-block;
+	margin-right:3px; 
+}
+
+#bnagregarrublo
+{
+	display: inline-block;
+	width: 16.5%
+}
+
+#bnEditar
+{
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+[readonly]
+{
+	cursor: default !important;
+}
+
+.date-ui
+{
+	cursor: pointer !important;
+}
+
+#cajaProyecto
+{
+	margin-bottom: 20px;
+}
+
+
+#visualizador
+{
+	display: inline-block;
+	width: 100%;
+}
+
+
+table.tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:0px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(../img/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../img/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(../img/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+
+
+.table-responsive h2 {
+	text-align: center;
+}
+
+
+.ui-front {
+	z-index: 2000 !important;
+}
+
+.modal-body {
+	-webkit-transition: all 2s;
+}

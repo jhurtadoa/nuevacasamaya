@@ -1,0 +1,131 @@
+@media screen and (max-width: 419px){/*434px*/
+	header h2,#imagencontactanos
+	{
+		display: none;
+	}
+	#formcontactanos
+	{
+		width: 90%;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+	#buscarproyecto
+	{
+		width: 95%;
+		padding-top: 0;
+		padding-bottom: .5em;
+	}
+}
+
+
+header
+{
+	border-radius: 20px 20px 0px 0px;
+	height: 80px;
+}
+
+
+
+.mi-navbar-fix
+{
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	z-index: 9090909;
+	box-shadow: 0 3px 10px gray;
+	margin-bottom: 50px;
+	display: block;
+	opacity: 1;
+}
+
+#titulopagina
+{
+	vertical-align: top;
+	display: inline-block;
+	width: 70%;
+	margin-top: -10px;
+}
+
+h1
+{
+	font-size: 1.9em;
+	text-shadow:0px 2px 9px gray;
+		-moz-text-shadow:0px 2px 9px gray;
+		-webkit-text-shadow:0px 2px 9px gray;
+}
+
+h2, legend
+{
+	font-size: 1.5em;
+}
+
+h3
+{
+	font-size: 1.3em
+}
+
+#imgLogo
+{
+	margin: 0;
+	padding: 0;
+	width: 70px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	display: inline;
+}
+
+#carta
+{
+	flex-direction:column;
+}
+#carta article
+{	
+	height: 80px;
+	border:0;
+	border-bottom: 1px solid gray;
+}
+#carta article:first-child
+{
+	border-top: 1px solid gray;
+}
+
+#carta p
+{
+	font-size: 1em;	
+}
+
+#carousel-example-generic
+{
+	border-bottom: 5px solid #f8f8f8;
+}
+
+footer
+{
+	border-radius: 0px 0px 20px 20px;
+	height: 60px;
+	
+}
+
+footer p
+{
+	
+	font-size: .8em;
+}
+
+footer img
+{
+	width: 50px;
+}
+
+#imgudc
+{
+	width: 35px;
+
+}
+
+#columnaOpciones
+{
+	display: none;
+}
