@@ -347,6 +347,12 @@ background-color: #8dbdd8;
 }
 
 
+
+.table-responsive {
+	max-height: 200px;
+	overflow-y: auto; 
+}
+
 .table-responsive h2 {
 	text-align: center;
 }
