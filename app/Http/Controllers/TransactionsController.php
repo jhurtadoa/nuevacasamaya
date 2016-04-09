@@ -21,12 +21,12 @@ class TransactionsController extends Controller
     public function agregarTransacciones(Request $request, $id_rent)
     {
         Transaction::registrarTransaccion($id_rent, $request->listaTipos, $request->listaMontos, $request->listaFechas, $request->listaDetalles);
-        
         return redirect()->route('administrar', $request->immovable_id);
     }
 
-    public function allImmovableTransactions($immovable_id){
-        return Transaction::getAllImmovableTransactions($immovable_id);
+    public function allImmovableTransactions($id){
+        $transacciones = Transaction::getAllImmovableTransactions($id);
+        return View('reporte', ['transacArriendo' => $transacciones]);
     }
     
 

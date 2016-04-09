@@ -56,19 +56,23 @@ class Transaction extends Model
         return Transaction::where('rent_id', $id)->where('type', 'Mensualidad')->get();
     }
 
-    public function getAllRentTransactions($rent_id)
+    public static function getAllRentTransactions($rent_id)
     {
         return Transaction::where('rent_id', $rent_id)->get();
     }
 
-    public function getAllImmovableTransactions($immovable_id)
+    public static function getAllImmovableTransactions($id)
     {
-        $inmueble = Immovable::find($immovable_id);
+        $inmueble = Immovable::find($id);
         $arriendos = $inmueble->rents;
         $transacciones = array();
         foreach ($arriendos as $arriendo) {
+            $arriendo->client;
             $transacciones[] = $arriendo->transactions;
+            $transacciones[(sizeOf($transacciones) -1)]->client = $arriendo->client->name .' '. $arriendo->client->last_name;
         }
+
+
         return $transacciones;
 
     }

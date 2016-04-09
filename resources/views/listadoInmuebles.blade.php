@@ -34,7 +34,7 @@
 
 						<td><a href="{{ url('inmuebles/'.$inmueble->id)}}" title="Editar"><span class="glyphicon glyphicon-edit"></span></a></td>
 						<td><a href="{{ url('inmuebles/administrar/'.$inmueble->id)}}" title="Administrar"><span class="glyphicon glyphicon-inbox"></span></a></td>
-						<td><a href="{{ url('inmuebles/reporte/'.$inmueble->id)}}" title="Reporte"><span class="glyphicon glyphicon-list-alt"></span></a></td>
+						<td><a href="{{ route('reporte', ['id' => $inmueble->id]) }}" title="Reporte"><span class="glyphicon glyphicon-list-alt"></span></a></td>
 						<td><a href="{{ url('inmuebles/eliminar/'.$inmueble->id)}}" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>
 					</tr>
 				  @endforeach

@@ -59,6 +59,15 @@ $(document).on('ready',function(){
                 listaAnadidos.html(listaAnadidos.html() + "<div class='grupoPago'><input type='text' name='tipoPanadido' value='"+tipos[i]+"' disabled><input type='text' name='montoPanadido' value='"+montos[i]+"' disabled><input type='text' name='fechaPanadido' value='"+fechas[i]+"' disabled><input type='text' name='detallesPanadido' value='"+detalles[i]+"' disabled><span><a href='javascript:eliminarRublo("+(i)+")'>Eliminar</a></span></div>");
             }
         }
+        copiarListas();
+    }
+
+    function copiarListas(){
+        $("#listaTipos").val(tipos.toString());
+        $("#listaMontos").val(montos.toString());
+        $("#listaFechas").val(fechas.toString());
+        $("#listaDetalles").val(detalles.toString());
+        
     }
 
     function eliminarRublo(i){

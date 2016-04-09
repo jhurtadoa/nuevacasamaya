@@ -3,28 +3,34 @@
 
 
 
+
+<h2>Transacciones</h2>
+
 	<div class="table-responsive">
 		<table class="table table-bordered table-condensed table-striped tablesorter">
 			<thead>
 				<tr>
-					<th>Fecha Inicio</th>
-					<th>Fecha Finalizado</th>
+					<th>Fecha Pago</th>
 					<th>Cliente</th>
-					<th>Valor Mensualidad</th>
-					<th>Igresos</th>
-					<th>Egresos</th>
+					<th>Tipo</th>
+					<th>Valor Pagado</th>
+					<th>Detalles</th>
 				</tr>
 			</thead>
 			<tbody>
 			
-	@foreach  ($reporInmueble->rents as $arriendo)
+	@foreach  ($transacArriendo as $transacciones)
+		@if(sizeOf($transacciones) != 0)
+			@foreach ($transacciones as $transaccion)
 				<tr>
-					<td>{{ $arriendo->start_date }}</td>
-					<td>{{ $arriendo->end_date }}</td>
-					<td>{{ $arriendo->client->name . ' ' . $arriendo->client->last_name }}</td>
-					<td>${{ number_format($arriendo->rent_cost, 2) }}</td>
-					
+					<td>{{ $transaccion->date }}</td>
+					<td>{{ $transacciones->client }}</td>
+					<td>{{ $transaccion->type }}</td>
+					<td>{{ $transaccion->amount }}</td>
+					<td>{{ $transaccion->detail }}</td>
 				</tr>
+			@endforeach
+		@endif
 	@endforeach
 			</tbody>
 		</table>

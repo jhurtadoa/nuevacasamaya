@@ -19,7 +19,7 @@ Route::group(['prefix' => 'inmuebles'], function () {
     
     //Rent controller
     Route::get('reportes', ['as' => 'reportes', 'uses' => 'RentsController@reportes']);
-    Route::get('reporte/{id}', ['as' => 'reporte', 'uses' => 'RentsController@reporte']);
+    Route::get('reporte/{id}', ['as' => 'reporte', 'uses' => 'TransactionsController@allImmovableTransactions']);
     
     Route::get('administrar/{id}', ['as' => 'administrar', 'uses' => 'RentsController@admin']);
 
@@ -39,7 +39,6 @@ Route::group(['prefix' => 'inmuebles'], function () {
     Route::post('{id}', 'ImmovablesController@update');
     
     Route::get('eliminar/{id}', 'ImmovablesController@destroy');
-
        
 });
 
@@ -62,7 +61,7 @@ Route::group(['prefix' => 'clientes'], function() {
 
 Route::group(['prefix' => 'transacciones'], function(){
     Route::post('agregar/{id_rent}', ['as' => 'agregartransacciones', 'uses' => 'TransactionsController@agregarTransacciones']);
-    Route::get('/{immovable_id}', 'TransactionsController@allImmovableTransactions');
+    //Route::get('/{immovable_id}', 'TransactionsController@allImmovableTransactions');
 });
 
 
