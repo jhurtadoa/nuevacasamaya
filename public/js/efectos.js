@@ -38,96 +38,34 @@ $(document).on('ready',function(){
         montos.push(montoPago);
         fechas.push(fechaPago);
         detalles.push(detallesPago);
-
-        agregarPago(tipoPago, montoPago, fechaPago, detallesPago);
+        listarTransacciones();
     }
 
-    function agregarPago(tipoP, montoP, fechaP, detallesP){
-        var anadidos = $("#anadidos");
-        var text = anadidos.html();
-        if(contador == 0)
-        { 
-            anadidos.html("<label>Rublos añadidos</label><br><div class='grupoPago'><input type='text' name='tipoPanadido' value='"+tipoP+"' disabled><input type='text' name='montoPanadido' value='"+montoP+"' disabled><input type='text' name='fechaPanadido' value='"+fechaP+"' disabled><input type='text' name='detallesPanadido' value='"+detallesP+"' disabled></div>");
-            contador++
-        }else{
-            anadidos.html( text + "<div class='grupoPago'><input type='text' name='tipoPanadido' value='"+tipoP+"' disabled><input type='text' name='montoPanadido' value='"+montoP+"' disabled><input type='text' name='fechaPanadido' value='"+fechaP+"' disabled><input type='text' name='detallesPanadido' value='"+detallesP+"' disabled></div>");
+    function listarTransacciones(){
+        var listaAnadidos = $('#anadidos');
+        listaAnadidos.html("");
+        var contador = 0;
+        var tamListas = tipos.length;
+        for(var i = 0; i < tamListas; i++){
+
+            if(contador == 0)
+            { 
+                listaAnadidos.html("<label>Rublos añadidos</label><br>");
+                contador++
+            }
+
+            if(contador >= 0)
+            {
+                listaAnadidos.html(listaAnadidos.html() + "<div class='grupoPago'><input type='text' name='tipoPanadido' value='"+tipos[i]+"' disabled><input type='text' name='montoPanadido' value='"+montos[i]+"' disabled><input type='text' name='fechaPanadido' value='"+fechas[i]+"' disabled><input type='text' name='detallesPanadido' value='"+detalles[i]+"' disabled><span><a href='javascript:eliminarRublo("+(i)+")'>Eliminar</a></span></div>");
+            }
         }
-        copiarListas();
     }
 
-    function copiarListas(){
-        var listaTipo = tipos.toString();
-        var listaMontos = montos.toString();
-        var listaFechas = fechas.toString();
-        var listaDetalles = detalles.toString();
-        $("#listaTipos").val(listaTipo);
-        $("#listaMontos").val(listaMontos);
-        $("#listaFechas").val(listaFechas);
-        $("#listaDetalles").val(listaDetalles);
-        
+    function eliminarRublo(i){
+        tipos.splice(i,1);
+        montos.splice(i,1);
+        fechas.splice(i,1);
+        detalles.splice(i,1);
+        listarTransacciones();
     }
 
-
-/*function formCrearCliente(url){
-    var contenedor = $("#modal-cliente");
-    var html = "<div><h2>Crear cliente</h2><form action='hola' method='post'><input type='text' name='namec' class='form-control' pattern='[A-Za-z]'><input type='text' name='last_namec' class='form-control' pattern='[A-Za-z]'><input type='text' name='document' pattern='[0-9]' class='form-control'><input type='text' name='phone' class='form-control' pattern='[0-9]{10}'><input type='email' name='email' class='form-control'><input type='submit' class='btn btn-default' value='Crear'><input type='hidden' name='_token' value="{{ csrf_token() }}"></form></div>";
-    contenedor.html(html);
-
-}
-*/
-
-
-/*
-$(window).scroll(function(){
-	var altura = 83;
-	if($(window).scrollTop() > altura) 
-	{
-		$('#minav').addClass('mi-navbar-fix');
-	}
-	else
-		if( $('#minav').hasClass('mi-navbar-fix'))
-		{
-			$('#minav').removeClass('mi-navbar-fix');
-		}
-		   
-});
-
-
-
-
-
-
-function ajax(url, contenedor, esHtml, tipoenvio){
-
-	$.ajax({
-        url: url,
-        async:true,
-        beforeSend: function(objeto){
-            var x;
-			x=$("#"+contenedor).html("<img  src='"+hostnombre+"img/loader.gif' />")
-        },
-        complete: function(objeto, exito){
-        
-        },
-        dataType: "html",
-        error: function(objeto, quepaso, otroobj){
-            alert("Error: "+quepaso);
-        },
-        global: true,
-        ifModified: false,
-        processData:true,
-        success: function(datos){
-			if(esHtml){
-				$("#"+contenedor).html(datos);
-			}else{
-				$("#"+contenedor).val(datos);
-			}
-
-        },
-        timeout: 3000,
-        type: tipoenvio
-	});
-	
-
-}
-*/

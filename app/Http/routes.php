@@ -61,7 +61,7 @@ Route::group(['prefix' => 'clientes'], function() {
 
 
 Route::group(['prefix' => 'transacciones'], function(){
-    Route::post('agregar/{id_rent}', ['as' => 'agregartransacciones', 'uses' => 'TransactionsController@postAdmin']);
+    Route::post('agregar/{id_rent}', ['as' => 'agregartransacciones', 'uses' => 'TransactionsController@agregarTransacciones']);
     Route::get('/{immovable_id}', 'TransactionsController@allImmovableTransactions');
 });
 

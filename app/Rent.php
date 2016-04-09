@@ -107,7 +107,7 @@ class Rent extends Model
         $arriendo->state = 'finalizado';
         $arriendo->save();
 
-        $inmueble = Immovable::find($request->id_inmueble);
+        $inmueble = Immovable::find($request->immovable_id);
         $inmueble->rent_id = 1;
         $inmueble->save();
 

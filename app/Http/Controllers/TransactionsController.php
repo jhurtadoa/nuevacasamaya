@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Immovable;
+use App\Transaction;
 
 class TransactionsController extends Controller
 {
@@ -17,29 +18,17 @@ class TransactionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function postAdmin(Request $request, $id_rent)
+    public function agregarTransacciones(Request $request, $id_rent)
     {
         Transaction::registrarTransaccion($id_rent, $request->listaTipos, $request->listaMontos, $request->listaFechas, $request->listaDetalles);
         
-        return redirect()->route('administrar', $id);
+        return redirect()->route('administrar', $request->immovable_id);
     }
 
-    public function allRentTransactions($rent_id)
-    {
-        return Transaction::where('rent_id', $rent_id)->get();
+    public function allImmovableTransactions($immovable_id){
+        return Transaction::getAllImmovableTransactions($immovable_id);
     }
-
-    public function allImmovableTransactions($immovable_id)
-    {
-        $inmueble = Immovable::find($immovable_id);
-        $arriendos = $inmueble->rents;
-        $transacciones = array();
-        foreach ($arriendos as $arriendo) {
-            $transacciones[] = $arriendo->transactions;
-        }
-        return $transacciones;
-
-    }
+    
 
 
     /**

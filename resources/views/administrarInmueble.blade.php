@@ -258,8 +258,7 @@
 		</form>
 		
 		<form action="{{url('inmuebles/finarriendo')}}" method="post">
-			<input type="hidden" name="id_inmueble" value="{{ $inmueble->id }}">
-			<input type="hidden" name="id_cliente" value="{{ $inmueble->rent->client->id }}">
+			<input type="hidden" name="immovable_id" value="{{ $inmueble->id }}">
 			<input type="hidden" name="rent_id" value="{{ $inmueble->rent->id }}">
 			<input type="submit" class="btn btn-default" name="fin_contrato" value="Finalizar contrato">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -353,7 +352,8 @@
 			</div>
 
 			<input type="hidden" name="rent_id" value="{{ $inmueble->rent->id }}">
-			<input type="button" class="btn btn-default" onClick="formulario.submit()" value="Actualizar Datos">
+			<input type="hidden" name="immovable_id" value="{{ $inmueble->id }}">
+			<input type="button" class="btn btn-default" onClick="formulario.submit()" value="Registrar Transacciones">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		</form>

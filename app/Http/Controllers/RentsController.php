@@ -55,7 +55,7 @@ class RentsController extends Controller
 
     public function finArriendo(Request $request){
         Rent::finalizarArriendo($request);
-        return redirect()->route('administrar', [ 'id' => $request->id_inmueble]);
+        return redirect()->route('administrar', [ 'id' => $request->immovable_id]);
     }
 
     public function crearArriendo(Request $request){

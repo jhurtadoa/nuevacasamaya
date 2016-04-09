@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Immovable;
 
 class Transaction extends Model
 {
@@ -53,5 +54,22 @@ class Transaction extends Model
 
     public static function getTransactionsI($id){
         return Transaction::where('rent_id', $id)->where('type', 'Mensualidad')->get();
+    }
+
+    public function getAllRentTransactions($rent_id)
+    {
+        return Transaction::where('rent_id', $rent_id)->get();
+    }
+
+    public function getAllImmovableTransactions($immovable_id)
+    {
+        $inmueble = Immovable::find($immovable_id);
+        $arriendos = $inmueble->rents;
+        $transacciones = array();
+        foreach ($arriendos as $arriendo) {
+            $transacciones[] = $arriendo->transactions;
+        }
+        return $transacciones;
+
     }
 }
