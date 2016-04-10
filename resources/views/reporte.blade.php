@@ -2,7 +2,7 @@
 @section('contenido')
 
 
-
+<h1>Reporte: {{ $inmueble->name }}</h1>
 
 <h2>Transacciones</h2>
 

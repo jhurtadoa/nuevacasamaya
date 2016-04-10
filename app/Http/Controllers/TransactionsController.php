@@ -26,7 +26,8 @@ class TransactionsController extends Controller
 
     public function allImmovableTransactions($id){
         $transacciones = Transaction::getAllImmovableTransactions($id);
-        return View('reporte', ['transacArriendo' => $transacciones]);
+        $inmueble = Immovable::find($id);
+        return View('reporte', ['transacArriendo' => $transacciones, 'inmueble' => $inmueble]);
     }
     
 

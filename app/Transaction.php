@@ -17,6 +17,10 @@ class Transaction extends Model
     	return $this->belongsTo('App\Rent');
     }
 
+    public function scopeSearch($query, $date1, $date2){
+        return $query->whereBetween('date', array($date1, $date2));
+    }
+
 
     public static function registrarTransaccion($rent_id, $listaTipos, $listaMontos, $listaFechas, $listaDetalles)
     {
