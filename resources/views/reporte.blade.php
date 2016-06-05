@@ -4,6 +4,8 @@
 
 <h1>Reporte: {{ $inmueble->name }}</h1>
 
+@include('buscador-transacciones', ['id_inmueble' => $inmueble->id])
+
 <h2>Transacciones</h2>
 
 	<div class="table-responsive">
@@ -19,12 +21,13 @@
 			</thead>
 			<tbody>
 			
-	@foreach  ($transacArriendo as $transacciones)
-		@if(sizeOf($transacciones) != 0)
-			@foreach ($transacciones as $transaccion)
+	@foreach  ($arriendos as $arriendo)
+
+		@if(sizeOf($arriendo->transacciones) != 0)
+			@foreach ($arriendo->transacciones as $transaccion)
 				<tr>
 					<td>{{ $transaccion->date }}</td>
-					<td>{{ $transacciones->client }}</td>
+					<td>{{ $arriendo->client->name . ' ' . $arriendo->client->last_name }}</td>
 					<td>{{ $transaccion->type }}</td>
 					<td>{{ $transaccion->amount }}</td>
 					<td>{{ $transaccion->detail }}</td>

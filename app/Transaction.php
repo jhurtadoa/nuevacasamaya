@@ -17,10 +17,13 @@ class Transaction extends Model
     	return $this->belongsTo('App\Rent');
     }
 
-    public function scopeSearch($query, $date1, $date2){
-        return $query->whereBetween('date', array($date1, $date2));
-    }
+    public function scopeSearchTransaction($query, $tipo, $fechainicio, $fechafin){
+        if ($fechafin == null){
+            $fechafin = '9999-12-31';
+        }
 
+        return $query->orWhere('type', 'like', "%$tipo%")->where('date', '>', "$fechainicio")->where('date', '<', "$fechafin");
+    }
 
     public static function registrarTransaccion($rent_id, $listaTipos, $listaMontos, $listaFechas, $listaDetalles)
     {
@@ -65,9 +68,19 @@ class Transaction extends Model
         return Transaction::where('rent_id', $rent_id)->get();
     }
 
-    public static function getAllImmovableTransactions($id)
-    {
-        $inmueble = Immovable::find($id);
+    public static function getAllImmovableTransactions($request, $id)
+    { 
+        $arriendos = Rent::where('immovable_id', $id)->with('client')->get();
+        
+
+        foreach ($arriendos as $arriendo) {
+            $arriendo->transacciones = Transaction::searchTransaction($request->tipo, $request->fechainicio, $request->fechafin)->where('rent_id', $arriendo->id)->get();
+        }
+        return $arriendos;
+
+/*
+        searchTransaction($request->cliente, $request->inicio, $request->fin)
+        
         $arriendos = $inmueble->rents;
         $transacciones = array();
         foreach ($arriendos as $arriendo) {
@@ -78,6 +91,6 @@ class Transaction extends Model
 
 
         return $transacciones;
-
+        */
     }
 }

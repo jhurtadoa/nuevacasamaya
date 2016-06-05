@@ -24,10 +24,10 @@ class TransactionsController extends Controller
         return redirect()->route('administrar', $request->immovable_id);
     }
 
-    public function allImmovableTransactions($id){
-        $transacciones = Transaction::getAllImmovableTransactions($id);
+    public function allImmovableTransactions(Request $request, $id){
+        $transacciones = Transaction::getAllImmovableTransactions($request, $id);
         $inmueble = Immovable::find($id);
-        return View('reporte', ['transacArriendo' => $transacciones, 'inmueble' => $inmueble]);
+        return View('reporte', ['arriendos' => $transacciones, 'inmueble' => $inmueble]);
     }
     
 
